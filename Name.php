@@ -31,16 +31,16 @@ class Name
 
     private function createEmail()
     {
-        $firstName = mb_strtolower($this->firstName);
-        $lastName = mb_strtolower($this->lastName);
+        $firstName = strtolower($this->firstName);
+        $lastName = strtolower($this->lastName);
 
         $search  = array('å', 'ä', 'ö', 'é', '-', ' ');
         $replace = array('a', 'a', 'o', 'e', '',  '');
         $firstName = str_replace($search, $replace, $firstName);
         $lastName = str_replace($search, $replace, $lastName);
 
-        $firstName = mb_substr($firstName, 0, 2);
-        $lastName = mb_substr($lastName, 0, 3);
+        $firstName = substr($firstName, 0, 2);
+        $lastName = substr($lastName, 0, 3);
 
         $email = "$firstName$lastName@example.com";
 
